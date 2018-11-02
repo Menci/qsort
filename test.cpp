@@ -11,7 +11,7 @@ extern "C" {
 
 struct Node {
     int id;
-    char s[12];
+    char s[8];
 
     bool operator<(const Node &other) const {
         return id < other.id;
@@ -36,14 +36,18 @@ test:
 
     // int range = rand() % 1000 + 1;
 
-    int a[n];
+    Node *a = (Node *)malloc(sizeof(Node) * n);
+    // int a[n];
     // for (int i = 0; i < n; i++) a[i] = rand() % range;
-    for (int i = 0; i < n; i++) a[i] = rand();
+    // for (int i = 0; i < n; i++) a[i] = rand();
+    for (int i = 0; i < n; i++) a[i].id = rand();
     // for (int i = 0; i < n; i++) scanf("%d", &a[i]);
     // for (int i = 0; i < n; i++) printf("%d\n", a[i]);
 
+    _qsort(a, n, sizeof(Node), compare_Node);
     // _qsort(a, n, sizeof(int), compare_int);
-    qsort(a, n, sizeof(int), compare_int);
+    // qsort(a, n, sizeof(Node), compare_Node);
+    // qsort(a, n, sizeof(int), compare_int);
     // std::sort(a, a + n);
 
     // for (int i = 0; i < n; i++) printf("%d%c", a[i], " \n"[i == n - 1]);
