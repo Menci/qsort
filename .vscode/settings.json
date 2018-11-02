@@ -1,0 +1,15 @@
+{
+    "files.associations": {
+        "qsort.h": "c",
+        "cassert": "cpp",
+        "ctime": "cpp",
+        "array": "c",
+        "string.h": "c",
+        "istream": "c",
+        "ostream": "c",
+        "type_traits": "c",
+        "tuple": "c",
+        "utility": "c",
+        "limits.h": "c"
+    }
+}
