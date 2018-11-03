@@ -1,12 +1,12 @@
 #ifdef _QSORT_SPECIALIZED_TYPE
-// Specialized implantation, without obj_size argument.
+// Specialized implementation, without obj_size argument.
 #define _PARAMETER_OBJ_SIZE
 #define _ARGUMENT_OBJ_SIZE
 
 // The obj_size is a static value, for compilers to optimize.
 #define obj_size _QSORT_SPECIALIZED_TYPE_SIZE
 #else
-// General implantation, with obj_size argument.
+// General implementation, with obj_size argument.
 #define _PARAMETER_OBJ_SIZE size_t obj_size, // Used in function definition.
 #define _ARGUMENT_OBJ_SIZE  obj_size,        // Used in function calling.
 #endif

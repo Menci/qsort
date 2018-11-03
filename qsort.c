@@ -42,27 +42,27 @@ typedef unsigned __int128 _type_128;
 #undef _QSORT_SPECIALIZED_TYPE_SIZE
 #endif
 
-// General implantation.
+// General implementation.
 #include "qsort_specialize.h"
 
 void _qsort(void *base,
             size_t n,
             size_t obj_size,
             compare_func_t compare_func) {
-#define _try_specialized_implantation(target_size) {        \
+#define _try_specialized_implementation(target_size) {      \
     if (obj_size == target_size / CHAR_BIT) {               \
         (_qsort_type_##target_size)(base, n, compare_func); \
         return;                                             \
     }                                                       \
 }
-    _try_specialized_implantation(8);
-    _try_specialized_implantation(16);
-    _try_specialized_implantation(32);
-    _try_specialized_implantation(64);
+    _try_specialized_implementation(8);
+    _try_specialized_implementation(16);
+    _try_specialized_implementation(32);
+    _try_specialized_implementation(64);
 #if __SIZEOF_INT128__ == 16
-    _try_specialized_implantation(128);
+    _try_specialized_implementation(128);
 #endif
 
-    // Fallback to general implantation.
+    // Fallback to general implementation.
     _qsort_general(base, n, obj_size, compare_func);
 }

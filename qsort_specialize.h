@@ -1,9 +1,9 @@
-// This file is used for qsort()'s implantation, whose 'memcpy' is specialized
+// This file is used for qsort()'s implementation, whose 'memcpy' is specialized
 // for 1, 2, 4, 8(, 16) bytes types for better performance.
 
 #ifdef _QSORT_SPECIALIZED_TYPE
 // If _QSORT_SPECIALIZED_TYPE is defined. It means this file should represent
-// a specialized implantation.
+// a specialized implementation.
 #define _specialized_memcpy(dest, src, n) \
     *(_QSORT_SPECIALIZED_TYPE *)(dest) = *(const _QSORT_SPECIALIZED_TYPE *)(src)
 #define _QSORT_FUNCTION_SUFFIX _QSORT_SPECIALIZED_TYPE
@@ -28,8 +28,8 @@
 #define _quick_sort              _concat(_quick_sort,              _QSORT_FUNCTION_SUFFIX)
 #define _qsort                   _concat(_qsort,                   _QSORT_FUNCTION_SUFFIX)
 
-// Now include the implantation, code will be transform to expected form.
-#include "qsort_implantation.h"
+// Now include the implementation, code will be transform to expected form.
+#include "qsort_implementation.h"
 
 #undef _swap
 #undef _insertion_sort
